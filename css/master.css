@@ -1,0 +1,30 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.table_score, th{
+  text-align: center;
+}
+
+.table_score{
+  height: 100%;
+}
+
+.td_score{
+  width: 36px;
+  text-align: center;
+}
+
+.txt_nom{
+  width: 100px;
+}
+
+.onclick:hover{
+  cursor: pointer;
+  background-color: #cccccc;
+}
