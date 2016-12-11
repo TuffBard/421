@@ -17,10 +17,8 @@
     <div class="container">
       <div class="col-md-2">
         <center>
-          <form class="form-horizontal" action="index.html" method="post">
             <label>Nombre de Joueur</label>
             <input class="form-control td_score" type="text"id="nb_j" value="2" width="15">
-          </form>
         </center>
       </div>
         <div class="col-md-8">
@@ -49,17 +47,37 @@
             </thead>
             <tr>
               <?php
+              for($i=1;$i<=$max;$i++)
+              {
+                echo"<td>
+                  <form class='form-inline'>
+                    <div class='form_group'>
+                      <input type='number' id='total_j$i' name='score' value='0' class='form-control td_score' disabled='disabled'>
+                    </div>
+                  </form>
+                </td>";
+              }
+              ?>
+            </tr>
+            <tr>
+              <?php
               for($i=1;$i<=$max;$i++){
                 echo"<td>
                       <form class='form-inline'>
                         <div class='form_group'>
-                          <input type='text' name='score' value='0' class='form-control td_score' disabled='disabled'>
-                          <button id='' type='button' onclick='' class='btn btn-default'>
-                            <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>
-                          </button>
+                          <input type='number' name='score' value='0' class='form-control td_score'>
                         </div>
                       </form>
-                    </td>";
+                    </td>
+                    ";
+                if($i==$max)
+                {
+                    echo"<td>
+                    <button id='' type='button' onclick='' class='btn btn-default'>
+                      <span class='glyphicon glyphicon-plus' aria-hidden='true'></span>
+                    </button>
+                  </td>";
+                }
               }
               ?>
             </tr>

@@ -16,7 +16,7 @@ body {
 }
 
 .td_score{
-  width: 36px;
+  width: 70px !important;
   text-align: center;
 }
 
