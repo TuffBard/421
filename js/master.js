@@ -1,4 +1,3 @@
-var nb_joueurs = $("nb_j").val();
 
 function setNom(id){
   let $nom = $('#j'+id)
@@ -14,8 +13,10 @@ function modNom(id){
 }
 
 function add_points(turn) {
-  alert("bitch!");
+  let nb_joueurs = $("#nb_j").val();
   for (i=1;i<=nb_joueurs;i++) {
-    $("total_j"+i).val(this.val()+$("score_j"+i+"_t"+turn).val());
+    let total_j = parseInt($("#total_j"+i).val(),10);
+    let score_j = parseInt($("#score_j"+i+"_t"+turn).val(),10);
+    $("#total_j"+i).val(total_j+score_j);
   }
 }

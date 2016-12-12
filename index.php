@@ -54,7 +54,7 @@
                 echo"<td>
                   <form class='form-inline'>
                     <div class='form_group'>
-                      <input type='number' id='total_j$i' name='score' value='0' class='form-control td_score' disabled='disabled'>
+                      <input type='number' id='total_j$i' name='score' value='0' class='form-control td_score' readonly>
                     </div>
                   </form>
                 </td>";
