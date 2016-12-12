@@ -21,8 +21,8 @@ function add_points(turn) {
 
     let $score_j = $("#score_j"+i+"_t"+turn);
     let $total_j = $("#total_j"+i);
-    let total_j = parseInt($total_j.val(),10);
-    let score_j = parseInt($score_j.val(),10);
+    let total_j = parseFloat($total_j.val(),10);
+    let score_j = parseFloat($score_j.val(),10);
     console.log(score_j);
     console.log(typeof total_j+score_j);
     //J'additionne le score au total du joueur
@@ -38,7 +38,7 @@ function add_points(turn) {
     row +=  "<td>"
             +"<form class='form-inline'>"
               +"<div class='form_group'>"
-                +"<input type='number' id='score_j"+i+"_t"+next+"' name='score' value='1' class='form-control td_score'>"
+                +"<input type='number' id='score_j"+i+"_t"+next+"' name='score' value='1' class='form-control td_score' step='0.5'>"
               +"</div>"
             +"</form>"
           +"</td>";

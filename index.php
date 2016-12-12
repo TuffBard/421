@@ -54,7 +54,7 @@
                 echo"<td>
                   <form class='form-inline'>
                     <div class='form_group'>
-                      <input type='number' id='total_j$i' name='score' value='0' class='form-control td_score' readonly>
+                      <input type='number' id='total_j$i' name='score' value='0' class='form-control td_score' step='0.5' readonly>
                     </div>
                   </form>
                 </td>";
@@ -70,7 +70,7 @@
                 echo"<td>
                       <form class='form-inline'>
                         <div class='form_group'>
-                          <input type='number' id='score_j".$i."_t0' name='score' value='1' class='form-control td_score'>
+                          <input type='number' id='score_j".$i."_t0' name='score' value='1' class='form-control td_score' step='0.5'>
                         </div>
                       </form>
                     </td>";
