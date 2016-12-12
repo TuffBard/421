@@ -18,7 +18,7 @@
       <div class="col-md-2">
         <center>
             <label>Nombre de Joueur</label>
-            <input class="form-control td_score" type="text"id="nb_j" value="2" width="15">
+            <input class="form-control td_score" type="text" id="nb_j" value="2" width="15">
         </center>
       </div>
         <div class="col-md-8">
@@ -65,22 +65,21 @@
             <!-- Premiere ligne de score -->
             <tr>
               <?php
-              //Je créé un colonne par joueur
+              //Je créé une colonne par joueur
               for($i=1;$i<=$max;$i++){
                 echo"<td>
                       <form class='form-inline'>
                         <div class='form_group'>
-                          <input type='number' name='score' value='0' class='form-control td_score'>
+                          <input type='number' id='score_j".$i."_t0' name='score' value='0' class='form-control td_score'>
                         </div>
                       </form>
-                    </td>
-                    ";
+                    </td>";
               }
               ?>
 
               <!-- J'ajoute un bouton 'plus' apres la dernière colonne -->
               <td>
-                <button id='' type='button' onclick='' class='btn btn-default'>
+                <button type='button' onclick='add_points(0);' class='btn btn-default'>
                   <span class='glyphicon glyphicon-plus' aria-hidden='true'></span>
                 </button>
               </td>
