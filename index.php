@@ -45,6 +45,8 @@
                 ?>
               </tr>
             </thead>
+
+            <!-- Score total -->
             <tr>
               <?php
               for($i=1;$i<=$max;$i++)
@@ -59,8 +61,11 @@
               }
               ?>
             </tr>
+
+            <!-- Premiere ligne de score -->
             <tr>
               <?php
+              //Je créé un colonne par joueur
               for($i=1;$i<=$max;$i++){
                 echo"<td>
                       <form class='form-inline'>
@@ -70,21 +75,20 @@
                       </form>
                     </td>
                     ";
-                if($i==$max)
-                {
-                    echo"<td>
-                    <button id='' type='button' onclick='' class='btn btn-default'>
-                      <span class='glyphicon glyphicon-plus' aria-hidden='true'></span>
-                    </button>
-                  </td>";
-                }
               }
               ?>
+
+              <!-- J'ajoute un bouton 'plus' apres la dernière colonne -->
+              <td>
+                <button id='' type='button' onclick='' class='btn btn-default'>
+                  <span class='glyphicon glyphicon-plus' aria-hidden='true'></span>
+                </button>
+              </td>
             </tr>
           </table>
         </div>
         <div class="col-md-2">
-          <h3><center>Règles</center></h3>
+          <center><button type="button" class="btn btn-default btn_regle">Règles</button></center>
         </div>
     </div>
 

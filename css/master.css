@@ -28,3 +28,7 @@ body {
   cursor: pointer;
   background-color: #cccccc;
 }
+
+.btn_regle {
+  margin-top: 20px;
+}
