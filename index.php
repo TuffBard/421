@@ -87,7 +87,7 @@
           </table>
         </div>
         <div class="col-md-2">
-            <center><button type="button" class="btn btn-default btn_regle"><a href="rules.html" target="_blank">Règles</a></button></center>
+            <center><a href="rules.html" target="_blank"><button type="button" class="btn btn-default btn_regle">Règles</button></a></center>
         </div>
     </div>
 
