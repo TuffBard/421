@@ -8,12 +8,12 @@ Les règles du jeu se trouve dans le fichier 'rules.html' et ne sont pas les rè
 L'application est destinée à un usage privé et n'insite pas à la consommation d'alcool.
 
 ## Cahier des charges
-1.Menu principal
-2.Nouvelle partie
-3.Gestion des scores
-4.Fin de la partie
-5.Historique
-6.Top classement
+1. Menu principal
+2. Nouvelle partie
+3. Gestion des scores
+4. Fin de la partie
+5. Historique
+6. Top classement
 
 
 ### Menu principal
