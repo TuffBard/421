@@ -17,7 +17,8 @@ function add_points(turn) {
   let next = turn+1;
 
   //Pour chaque joueur
-  for (i=1;i<=nb_joueurs;i++) {
+  for (i=1;i<=nb_joueurs;i++)
+  {
 
     let $score_j = $("#score_j"+i+"_t"+turn);
     let $total_j = $("#total_j"+i);
@@ -35,10 +36,12 @@ function add_points(turn) {
   let row = "<tr id='turn_"+next+"'>";
   //Je créé une collonne par joueur
   for (i=1;i<=nb_joueurs;i++) {
+    let diablo = gestion_diablo(i,turn);
     row +=  "<td>"
             +"<form class='form-inline'>"
               +"<div class='form_group'>"
                 +"<input type='number' id='score_j"+i+"_t"+next+"' name='score' value='1' class='form-control td_score' step='0.5'>"
+                + diablo
               +"</div>"
             +"</form>"
           +"</td>";
@@ -53,4 +56,33 @@ function add_points(turn) {
   $("#turn_"+turn).after(row);
   //Je cache le bouton précédent
   $("#btn_add_"+turn).css("display","none");
+}
+
+function toggle_diablo(player,turn){
+  //Je sélectionne l'image du joueur
+  var $img = $("#img_diablo_j"+player+"_t"+turn);
+  //Si le diablo est activé
+  if($img.attr("src")=='img/diablo_on.png'){
+    //Je passe l'img en désactivé
+    $img.attr("src","img/diablo_off.png");
+  }
+  else {
+    //Sinon je passe l'img en activé
+    $img.attr("src","img/diablo_on.png");
+  }
+}
+
+function gestion_diablo(player, turn){
+  //Je sélectionne l'image
+  var $img = $("#img_diablo_j"+player+"_t"+turn);
+  let next = turn+1;
+  //Si diablo activé
+  if($img.attr("src")=='img/diablo_on.png'){
+    //Je le laisse activé sur la ligne suivante
+    return "<img id='img_diablo_j"+i+"_t"+next+"' src='img/diablo_on.png' onclick='toggle_diablo("+player+","+next+");' class='onclick'/>";
+  }
+  else {
+    //Sinon je le laisse désactivé
+    return "<img id='img_diablo_j"+i+"_t"+next+"' src='img/diablo_off.png' onclick='toggle_diablo("+player+","+next+");' class='onclick'/>";
+  }
 }

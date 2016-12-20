@@ -24,9 +24,8 @@ body {
   width: 100px;
 }
 
-.onclick:hover{
+.onclick{
   cursor: pointer;
-  background-color: #cccccc;
 }
 
 .btn_regle {

@@ -71,12 +71,12 @@
                       <form class='form-inline'>
                         <div class='form_group'>
                           <input type='number' id='score_j".$i."_t0' name='score' value='1' class='form-control td_score' step='0.5'>
+                          <img id='img_diablo_j".$i."_t0' src='img/diablo_off.png' alt='diablo is off' value='false' onclick='toggle_diablo($i,0);' class='onclick'/>
                         </div>
                       </form>
                     </td>";
               }
               ?>
-
               <!-- J'ajoute un bouton 'plus' apres la dernière colonne -->
               <td id="btn_add_0">
                 <button type='button' onclick='add_points(0);' class='btn btn-default'>
