@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  if(!isset($_SESSION["nb_j"])) {
+    $_SESSION["nb_j"] = 2;
+  }
+  $max = $_SESSION["nb_j"];
+ ?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -17,8 +24,18 @@
     <div class="container">
       <div class="col-md-2">
         <center>
-            <label>Nombre de Joueur</label>
-            <input class="form-control td_score" type="text" id="nb_j" value="2" width="15">
+
+          <label>Nombre de Joueur</label>
+
+          <form class='form-inline'>
+            <div class='form_group'>
+              <input class="form-control td_score" type="text" id="nb_j" value="<?php echo $max ?>" width="15" onsubmit="set_nb_j();">
+              <button type="button" onclick="set_nb_j();" class="btn btn-default">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              </button>
+            </div>
+          </form>
+
         </center>
       </div>
         <div class="col-md-8">
@@ -29,7 +46,6 @@
             <thead>
               <tr>
                 <?php
-                  $max=2;
                   for($i=1;$i<=$max;$i++){
                     echo "<th id='th_j$i'>
                             <form class='form-inline'>

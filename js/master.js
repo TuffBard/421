@@ -40,7 +40,7 @@ function add_points(turn) {
     row +=  "<td>"
             +"<form class='form-inline'>"
               +"<div class='form_group'>"
-                +"<input type='number' id='score_j"+i+"_t"+next+"' name='score' value='1' class='form-control td_score' step='0.5'>"
+                +"<input type='number' id='score_j"+i+"_t"+next+"' value='1' class='form-control td_score' step='0.5'>"
                 + diablo
               +"</div>"
             +"</form>"
@@ -84,5 +84,23 @@ function gestion_diablo(player, turn){
   else {
     //Sinon je le laisse désactivé
     return "<img id='img_diablo_j"+i+"_t"+next+"' src='img/diablo_off.png' onclick='toggle_diablo("+player+","+next+");' class='onclick'/>";
+  }
+}
+
+function set_nb_j(){
+  if(confirm("Les scores seront supprimés. Continuer ?")){
+    var nb_j = $("#nb_j").val();
+    if(nb_j > 1 && nb_j<=10){
+      $.ajax({
+        method: "POST",
+        url:"./php/ajax/set_nb_j.php",
+        data: {nb_joueurs: nb_j}
+      }).done(function(data){
+        //alert(data);
+        location.reload(true);
+      })
+    } else {
+      alert("Le nombre de joueur doit être compris entre 2 et 10 !");
+    }
   }
 }
