@@ -31,3 +31,7 @@ body {
 .btn_regle {
   margin-top: 20px;
 }
+
+.input_name{
+  width:100px !important;
+}

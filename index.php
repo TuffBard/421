@@ -27,14 +27,12 @@
 
           <label>Nombre de Joueur</label>
 
-          <form class='form-inline'>
-            <div class='form_group'>
+          <div class='form_group'>
               <input class="form-control td_score" type="text" id="nb_j" value="<?php echo $max ?>" width="15" onsubmit="set_nb_j();">
               <button type="button" onclick="set_nb_j();" class="btn btn-default">
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
               </button>
             </div>
-          </form>
 
         </center>
       </div>
@@ -50,7 +48,7 @@
                     echo "<th id='th_j$i'>
                             <form class='form-inline'>
                               <div class='form_group'>
-                                <input type='text' class='form-control' id='j$i' placeholder='Joueur $i'>
+                                <input type='text' class='form-control input_name' id='j$i' placeholder='Joueur $i'>
                                 <button id='btn_nom$i' type='button' onclick='setNom($i);' class='btn btn-default'>
                                   <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>
                                 </button>
