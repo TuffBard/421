@@ -28,11 +28,20 @@
           <label>Nombre de Joueur</label>
 
           <div class='form_group'>
-              <input class="form-control td_score" type="text" id="nb_j" value="<?php echo $max ?>" width="15" onsubmit="set_nb_j();">
+              <!-- <input class="form-control td_score" type="text" id="nb_j" value="<?php echo $max ?>" width="15" onsubmit="set_nb_j();">
               <button type="button" onclick="set_nb_j();" class="btn btn-default">
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-              </button>
+              </button> -->
+            <div class="col-xs-8 col-xs-offset-2" onchange="set_nb_joueurs();">
+              <select id="nb_j" class="form-control">
+                <?php
+                for ($i=2; $i <= 6; $i++) {
+                  echo "<option value='$i'>$i</option>";
+                }
+                ?>
+              </select>
             </div>
+        </div>
 
         </center>
       </div>

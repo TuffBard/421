@@ -87,20 +87,21 @@ function gestion_diablo(player, turn){
   }
 }
 
-function set_nb_j(){
-  if(confirm("Les scores seront supprimés. Continuer ?")){
-    var nb_j = $("#nb_j").val();
-    if(nb_j > 1 && nb_j<=10){
+function set_nb_joueurs() {
+    if(confirm("Les scores seront supprimés. Continuer ?")){
+      //Recup nb joueur
+      var nb_j = $('#nb_j').val();
+
+      //Modifie la variable de session nb_j
       $.ajax({
         method: "POST",
         url:"./php/ajax/set_nb_j.php",
         data: {nb_joueurs: nb_j}
       }).done(function(data){
         //alert(data);
+        //Recharge la page
         location.reload(true);
-      })
-    } else {
-      alert("Le nombre de joueur doit être compris entre 2 et 10 !");
+        $('#nb_j').val(nb_j);
+      });
     }
-  }
 }
