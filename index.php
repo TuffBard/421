@@ -32,14 +32,19 @@
               <button type="button" onclick="set_nb_j();" class="btn btn-default">
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
               </button> -->
-            <div class="col-xs-8 col-xs-offset-2" onchange="set_nb_joueurs();">
-              <select id="nb_j" class="form-control">
+            <div class="col-xs-8 col-xs-offset-2">
+              <select id='nb_j' class='form-control' onchange="set_nb_joueurs();">
                 <?php
-                for ($i=2; $i <= 6; $i++) {
-                  echo "<option value='$i'>$i</option>";
+                for ($i=2; $i <= 8; $i++) 
+                {
+                  if($i==$max){
+                    echo "<option value='$i' selected>$i</option>";
+                  }else {
+                    echo "<option value='$i'>$i</option>";
+                  }
                 }
                 ?>
-              </select>
+                </select>
             </div>
         </div>
 
