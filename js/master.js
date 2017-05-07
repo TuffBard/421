@@ -19,13 +19,13 @@ function add_points(turn) {
   //Pour chaque joueur
   for (i=1;i<=nb_joueurs;i++)
   {
-
     let $score_j = $("#score_j"+i+"_t"+turn);
     let $total_j = $("#total_j"+i);
     let total_j = parseFloat($total_j.val(),10);
     let score_j = parseFloat($score_j.val(),10);
-    console.log(score_j);
-    console.log(typeof total_j+score_j);
+    add_point_php(i,turn,score_j);
+    //console.log(score_j);
+    //console.log(typeof total_j+score_j);
     //J'additionne le score au total du joueur
     $total_j.val(total_j+score_j);
     //J'empeche la modification de la ligne
@@ -56,6 +56,20 @@ function add_points(turn) {
   $("#turn_"+turn).after(row);
   //Je cache le bouton précédent
   $("#btn_add_"+turn).css("display","none");
+}
+
+function add_point_php(joueur, tour, score){
+  $.ajax({
+    method: "POST",
+    url:"./php/ajax/add_point.php",
+    data: {
+      joueur: joueur,
+      tour: tour,
+      score: score
+    }
+  }).done(function(data){
+    console.log(data);
+  });
 }
 
 function toggle_diablo(player,turn){
@@ -97,8 +111,7 @@ function set_nb_joueurs() {
         method: "POST",
         url:"./php/ajax/set_nb_j.php",
         data: {nb_joueurs: nb_j}
-      }).done(function(data){
-        //alert(data);
+      }).done(function(){
         //Recharge la page
         location.reload(true);
         $('#nb_j').val(nb_j);

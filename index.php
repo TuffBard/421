@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <?php
   session_start();
-  if(!isset($_SESSION["nb_j"])) {
-    $_SESSION["nb_j"] = 2;
+  require_once("php/class/game.php");
+
+  $game = new Game();
+  if(isset($_SESSION["game"])){
+    $game = unserialize($_SESSION["game"]);
   }
-  $max = $_SESSION["nb_j"];
+  $max = $game->nb_player;
+  $_SESSION["game"] = serialize($game);
  ?>
 <html>
   <head>
@@ -24,7 +28,6 @@
     <div class="container">
       <div class="col-md-2">
         <center>
-
           <label>Nombre de Joueur</label>
 
           <div class='form_group'>
@@ -35,7 +38,7 @@
             <div class="col-xs-8 col-xs-offset-2">
               <select id='nb_j' class='form-control' onchange="set_nb_joueurs();">
                 <?php
-                for ($i=2; $i <= 8; $i++) 
+                for ($i=2; $i <= 8; $i++)
                 {
                   if($i==$max){
                     echo "<option value='$i' selected>$i</option>";
@@ -73,7 +76,6 @@
                 ?>
               </tr>
             </thead>
-
             <!-- Score total -->
             <tr>
               <?php
@@ -82,35 +84,53 @@
                 echo"<td>
                   <form class='form-inline'>
                     <div class='form_group'>
-                      <input type='number' id='total_j$i' name='score' value='0' class='form-control td_score' step='0.5' readonly>
+                      <input type='number' id='total_j$i' name='score' value='".$game->players[$i]->total()."' class='form-control td_score' step='0.5' readonly>
                     </div>
                   </form>
                 </td>";
               }
               ?>
             </tr>
-
-            <!-- Premiere ligne de score -->
-            <tr id="turn_0">
               <?php
+              /// Scores précédents
+              $nb_turns = count($game->players[1]->turns);
+              for($t=0;$t<$nb_turns;$t++){
+                echo "<tr id='turn_$t'>";
+                for($i=1;$i<=$max;$i++){
+                  $score = $game->players[$i]->turns[$t];
+                  echo"<td>
+                        <form class='form-inline'>
+                          <div class='form_group'>
+                            <input type='number' id='score_j".$i."_t$t' name='score' value='$score' class='form-control td_score' step='0.5' disabled>
+                            <img id='img_diablo_j".$i."_t$t' src='img/diablo_off.png' alt='diablo is off' value='false' onclick='toggle_diablo($i,$t);' class='onclick'/>
+                          </div>
+                        </form>
+                      </td>";
+                }
+                echo "</tr>";
+              }
+            /// Premiere ligne de score
+            echo "<tr id='turn_$nb_turns'>";
+
               //Je créé une colonne par joueur
               for($i=1;$i<=$max;$i++){
                 echo"<td>
                       <form class='form-inline'>
                         <div class='form_group'>
-                          <input type='number' id='score_j".$i."_t0' name='score' value='1' class='form-control td_score' step='0.5'>
-                          <img id='img_diablo_j".$i."_t0' src='img/diablo_off.png' alt='diablo is off' value='false' onclick='toggle_diablo($i,0);' class='onclick'/>
+                          <input type='number' id='score_j".$i."_t$nb_turns' name='score' value='1' class='form-control td_score' step='0.5'>
+                          <img id='img_diablo_j".$i."_t$nb_turns' src='img/diablo_off.png' alt='diablo is off' value='false' onclick='toggle_diablo($i,$nb_turns);' class='onclick'/>
                         </div>
                       </form>
                     </td>";
               }
-              ?>
-              <!-- J'ajoute un bouton 'plus' apres la dernière colonne -->
-              <td id="btn_add_0">
-                <button type='button' onclick='add_points(0);' class='btn btn-default'>
+
+              // J'ajoute un bouton 'plus' apres la dernière colonne
+              echo"<td id='btn_add_$nb_turns'>
+                <button type='button' onclick='add_points($nb_turns);' class='btn btn-default'>
                   <span class='glyphicon glyphicon-plus' aria-hidden='true'></span>
                 </button>
-              </td>
+              </td>";
+              ?>
             </tr>
           </table>
         </div>
