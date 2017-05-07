@@ -62,11 +62,20 @@
               <tr>
                 <?php
                   for($i=1;$i<=$max;$i++){
+                    if(isset($game->players[$i]->nom)){
+                      $nom = $game->players[$i]->nom;
+                      $disabled = "disabled";
+                      $onclick = "modNom($i);";
+                    } else {
+                      $nom = "";
+                      $disabled = "";
+                      $onclick = "setNom($i);";
+                    }
                     echo "<th id='th_j$i'>
                             <form class='form-inline'>
                               <div class='form_group'>
-                                <input type='text' class='form-control input_name' id='j$i' placeholder='Joueur $i'>
-                                <button id='btn_nom$i' type='button' onclick='setNom($i);' class='btn btn-default'>
+                                <input type='text' class='form-control input_name' id='j$i' placeholder='Joueur $i' value='$nom' $disabled>
+                                <button id='btn_nom$i' type='button' onclick='$onclick' class='btn btn-default btn-sm'>
                                   <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>
                                 </button>
                               </div>
@@ -81,10 +90,16 @@
               <?php
               for($i=1;$i<=$max;$i++)
               {
+                $game->players[$i]->refresh_total();
+                if( isset($game->players[$i]->total) ){
+                  $total = $game->players[$i]->total;
+                } else {
+                  $total = 0;
+                }
                 echo"<td>
                   <form class='form-inline'>
                     <div class='form_group'>
-                      <input type='number' id='total_j$i' name='score' value='".$game->players[$i]->total()."' class='form-control td_score' step='0.5' readonly>
+                      <input type='number' id='total_j$i' name='score' value='$total' class='form-control td_score' step='0.5' readonly>
                     </div>
                   </form>
                 </td>";

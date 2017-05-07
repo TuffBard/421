@@ -7,9 +7,6 @@
     $game = unserialize($_SESSION["game"]);
   }
 
-  $game->nb_player = $_POST["nb_joueurs"];
-  for ($i=1; $i < $game->nb_player; $i++) {
-    $game->players[$i] = new Player();
-  }
+  $game->players[$_POST["joueur"]]->nom = $_POST["nom"];
   $_SESSION["game"] = serialize($game);
  ?>

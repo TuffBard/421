@@ -4,6 +4,17 @@ function setNom(id){
   if($nom.val().trim()!=""){
     $nom.prop('disabled',true)
     $("#btn_nom"+id).attr("onclick","modNom("+id+")")
+
+    $.ajax({
+      method: "POST",
+      url:"./php/ajax/modify_name.php",
+      data: {
+        joueur: id,
+        nom: $nom.val()
+      }
+    }).done(function(data){
+      console.log(data);
+    });
   }
 }
 
@@ -118,3 +129,12 @@ function set_nb_joueurs() {
       });
     }
 }
+
+$(function(){
+  $('.input_name').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+})
