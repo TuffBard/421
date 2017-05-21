@@ -6,8 +6,7 @@
   if(isset($_SESSION["game"])){
     $game = unserialize($_SESSION["game"]);
   }
-
-  $game->nb_player = $_POST["nb_joueurs"];
+  $game->setPlayers($_POST["nb_joueurs"]);
   for ($i=1; $i < $game->nb_player; $i++) {
     $game->players[$i] = new Player();
   }

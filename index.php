@@ -117,7 +117,7 @@
                         <form class='form-inline'>
                           <div class='form_group'>
                             <input type='number' id='score_j".$i."_t$t' name='score' value='$score' class='form-control td_score' step='0.5' disabled>
-                            <img id='img_diablo_j".$i."_t$t' src='img/diablo_off.png' alt='diablo is off' value='false' onclick='toggle_diablo($i,$t);' class='onclick'/>
+                            <img id='img_diablo_j".$i."_t$t' src='img/diablo_off.png' alt='diablo is off' value='false' onclick='toggle_diablo($i,$t);' class='diablo onclick'/>
                           </div>
                         </form>
                       </td>";
@@ -133,7 +133,7 @@
                       <form class='form-inline'>
                         <div class='form_group'>
                           <input type='number' id='score_j".$i."_t$nb_turns' name='score' value='1' class='form-control td_score' step='0.5'>
-                          <img id='img_diablo_j".$i."_t$nb_turns' src='img/diablo_off.png' alt='diablo is off' value='false' onclick='toggle_diablo($i,$nb_turns);' class='onclick'/>
+                          <img id='img_diablo_j".$i."_t$nb_turns' src='img/diablo_off.png' alt='diablo is off' value='false' onclick='toggle_diablo($i,$nb_turns);' class='diablo onclick'/>
                         </div>
                       </form>
                     </td>";

@@ -104,11 +104,11 @@ function gestion_diablo(player, turn){
   //Si diablo activé
   if($img.attr("src")=='img/diablo_on.png'){
     //Je le laisse activé sur la ligne suivante
-    return "<img id='img_diablo_j"+i+"_t"+next+"' src='img/diablo_on.png' onclick='toggle_diablo("+player+","+next+");' class='onclick'/>";
+    return "<img id='img_diablo_j"+i+"_t"+next+"' src='img/diablo_on.png' onclick='toggle_diablo("+player+","+next+");' class='diablo onclick'/>";
   }
   else {
     //Sinon je le laisse désactivé
-    return "<img id='img_diablo_j"+i+"_t"+next+"' src='img/diablo_off.png' onclick='toggle_diablo("+player+","+next+");' class='onclick'/>";
+    return "<img id='img_diablo_j"+i+"_t"+next+"' src='img/diablo_off.png' onclick='toggle_diablo("+player+","+next+");' class='diablo onclick'/>";
   }
 }
 

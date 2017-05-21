@@ -11,5 +11,13 @@ class Game {
       $this->players[1] = new Player();
       $this->players[2] = new Player();
   }
+
+  public function setPlayers($nbPlayer)
+  {
+      $this->nb_player = $nbPlayer;
+      for($i=1;$i<=$nbPlayer;$i++){
+        $this->players[$i] = new Player();
+      }
+  }
 }
 ?>
