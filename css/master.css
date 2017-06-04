@@ -28,14 +28,29 @@ body {
   cursor: pointer;
 }
 
-.btn_regle {
-  margin-top: 20px;
-}
-
 .input_name{
   width:100px !important;
 }
 
 .diablo{
   position: absolute;
+  margin-left: 5px;
+}
+
+.td_add{
+  border: none !important;
+}
+
+.set_nb_joueurs{
+  width: 60px;
+}
+
+.btn_set_nom, .btn_mod_nom{
+  position: absolute;
+  margin-left: 5px;
+}
+
+.dice{
+  border-radius: 0 !important;
+  margin-right: 5px;
 }

@@ -66,15 +66,15 @@ function add_points() {
           +"</td>";
   }
   // J'ajoute un bouton 'plus' apres la dernière colonne -->
-  row += "<td id='btn_add_"+next+"'>"
-          +"<button type='button' class='btn btn-default btn-add-points' data-turn='"+next+"'>"
+  row += "<td id='td_add_"+next+"' class='td_add'>"
+          +"<button type='button' class='btn btn-primary btn-add-points' data-turn='"+next+"'>"
             +"<span class='glyphicon glyphicon-plus' aria-hidden='true'></span>"
           +"</button>"
         +"</td></tr>";
   //j'ajoute la ligne au tableau
   $("#turn_"+turn).after(row);
   //Je cache le bouton précédent
-  $("#btn_add_"+turn).css("display","none");
+  $(this).css("display","none");
   initBtnPoints();
   initDiablo();
 }
@@ -89,7 +89,7 @@ function add_point_php(joueur, tour, score){
       score: score
     }
   }).done(function(data){
-    console.log(data);
+    //console.log(data);
   });
 }
 
