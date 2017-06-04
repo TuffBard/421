@@ -36,7 +36,7 @@
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
               </button> -->
             <div class="col-xs-8 col-xs-offset-2">
-              <select id='nb_j' class='form-control' onchange="set_nb_joueurs();">
+              <select id='nb_j' class='form-control set_nb_joueurs'>
                 <?php
                 for ($i=2; $i <= 8; $i++)
                 {
@@ -65,17 +65,17 @@
                     if(isset($game->players[$i]->nom)){
                       $nom = $game->players[$i]->nom;
                       $disabled = "disabled";
-                      $onclick = "modNom($i);";
+                      $onclick = "btn_mod_nom";
                     } else {
                       $nom = "";
                       $disabled = "";
-                      $onclick = "setNom($i);";
+                      $onclick = "btn_set_nom";
                     }
-                    echo "<th id='th_j$i'>
+                    echo "<th>
                             <form class='form-inline'>
                               <div class='form_group'>
                                 <input type='text' class='form-control input_name' id='j$i' placeholder='Joueur $i' value='$nom' $disabled>
-                                <button id='btn_nom$i' type='button' onclick='$onclick' class='btn btn-default btn-sm'>
+                                <button type='button' class='btn btn-default btn-sm $onclick' data-id='$i'>
                                   <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>
                                 </button>
                               </div>
@@ -117,14 +117,14 @@
                         <form class='form-inline'>
                           <div class='form_group'>
                             <input type='number' id='score_j".$i."_t$t' name='score' value='$score' class='form-control td_score' step='0.5' disabled>
-                            <img id='img_diablo_j".$i."_t$t' src='img/diablo_off.png' alt='diablo is off' value='false' onclick='toggle_diablo($i,$t);' class='diablo onclick'/>
+                            <img src='img/diablo_off.png' value='false' class='diablo onclick'/>
                           </div>
                         </form>
                       </td>";
                 }
                 echo "</tr>";
               }
-            /// Premiere ligne de score
+            /// Nouveau tour
             echo "<tr id='turn_$nb_turns'>";
 
               //Je créé une colonne par joueur
@@ -133,7 +133,7 @@
                       <form class='form-inline'>
                         <div class='form_group'>
                           <input type='number' id='score_j".$i."_t$nb_turns' name='score' value='1' class='form-control td_score' step='0.5'>
-                          <img id='img_diablo_j".$i."_t$nb_turns' src='img/diablo_off.png' alt='diablo is off' value='false' onclick='toggle_diablo($i,$nb_turns);' class='diablo onclick'/>
+                          <img src='img/diablo_off.png' value='false' class='diablo onclick'/>
                         </div>
                       </form>
                     </td>";
@@ -141,7 +141,7 @@
 
               // J'ajoute un bouton 'plus' apres la dernière colonne
               echo"<td id='btn_add_$nb_turns'>
-                <button type='button' onclick='add_points($nb_turns);' class='btn btn-default'>
+                <button type='button' class='btn btn-default btn-add-points' data-turn='$nb_turns'>
                   <span class='glyphicon glyphicon-plus' aria-hidden='true'></span>
                 </button>
               </td>";
