@@ -136,6 +136,7 @@ function set_nb_joueurs() {
         //Recharge la page
         location.reload(true);
         $('#nb_j').val(nb_j);
+        initDiablo();
       });
     }
 }
@@ -148,10 +149,12 @@ function initBtnName(){
 }
 
 function initBtnPoints(){
+  $(".btn-add-points").unbind("click");
   $(".btn-add-points").click(add_points);
 }
 
 function initDiablo(){
+  $('.diablo').unbind('click');
   $(".diablo").click(toggle_diablo);
 }
 
