@@ -20,6 +20,8 @@
     <link href="css/master.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="js/jquery-3.1.0.min.js" charset="utf-8"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.js" charset="utf-8"></script>
     <!-- JS -->
     <script src="js/master.js"></script>
   </head>
@@ -33,22 +35,14 @@
 
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a><label>Nombre de Joueur</label></a></li>
+            <li>
+              <a data-toggle="modal" href="#myModal">
+                <span class="glyphicon glyphicon-cog"></span>
+                <label>Paramètres</label>
+              </a>
+            </li>
           </ul>
-          <form class="navbar-form navbar-left">
-            <select id='nb_j' class='form-control set_nb_joueurs'>
-              <?php
-              for ($i=2; $i <= 8; $i++)
-              {
-                if($i==$max){
-                  echo "<option value='$i' selected>$i</option>";
-                }else {
-                  echo "<option value='$i'>$i</option>";
-                }
-              }
-              ?>
-            </select>
-          </form>
+
           <form class="navbar-form navbar-right">
             <a href="rules.html" target="_blank" class="btn btn-primary float-right">Règles</a>
           </form>
@@ -66,23 +60,10 @@
                 for($i=1;$i<=$max;$i++){
                   if(isset($game->players[$i]->nom)){
                     $nom = $game->players[$i]->nom;
-                    $disabled = "disabled";
-                    $onclick = "btn_mod_nom";
                   } else {
                     $nom = "";
-                    $disabled = "";
-                    $onclick = "btn_set_nom";
                   }
-                  echo "<th>
-                          <form class='form-inline'>
-                            <div class='form_group'>
-                              <input type='text' class='form-control input_name' id='j$i' placeholder='Joueur $i' value='$nom' $disabled>
-                              <button type='button' class='btn btn-default btn-l $onclick' data-id='$i'>
-                                <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>
-                              </button>
-                            </div>
-                          </form>
-                        </th>";
+                  echo "<th><strong>$nom</strong></th>";
                 }
               ?>
             </tr>
@@ -151,7 +132,54 @@
           </tr>
         </table>
       </div>
+
+    <!-- Modal paramètres -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body auto-height">
+            <div class="col-xs-12">
+                <label for="nb_j">Nombre de Joueur</label>
+                <select id='nb_j' name="nb_j" class='form-control set_nb_joueurs'>
+                  <?php
+                  for ($i=2; $i <= 8; $i++)
+                  {
+                    if($i==$max){
+                      echo "<option value='$i' selected>$i</option>";
+                    }else {
+                      echo "<option value='$i'>$i</option>";
+                    }
+                  }
+                  ?>
+                </select>
+              </div>
+                <?php
+                  for($i=1;$i<=$max;$i++){
+                    if(isset($game->players[$i]->nom)){
+                      $nom = $game->players[$i]->nom;
+                    } else {
+                      $nom = "";
+                    }
+                    echo "<div class='col-xs-4'>
+                            <label>Joueur $i </label>
+                            <input type='text' class='form-control input_name player_name_$i' id='j$i' value='$nom'>
+                          </div>";
+                  }
+                ?>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            <button type="button" class="btn btn-success btn-setting-validation">Valider</button>
+          </div>
+        </div>
+
+      </div>
     </div>
 
+  </div>
   </body>
 </html>

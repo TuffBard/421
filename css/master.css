@@ -54,3 +54,7 @@ body {
   border-radius: 0 !important;
   margin-right: 5px;
 }
+
+.auto-height{
+  overflow-y: auto;
+}

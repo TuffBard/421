@@ -5,7 +5,7 @@ class Player{
   public $total;
 
   public function __contstruct(){
-    $this->nom = "";
+    $this->nom = "Joueur";
     $this->total = 0;
   }
 
