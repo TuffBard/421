@@ -106,13 +106,6 @@ function set_nb_joueurs() {
   }
 }
 
-function initBtnName() {
-  $(".btn_set_nom").unbind("click");
-  $(".btn_mod_nom").unbind("click");
-  $(".btn_set_nom").click(setNom);
-  $(".btn_mod_nom").click(modNom);
-}
-
 function initBtnPoints() {
   $(".btn-add-points").unbind("click");
   $(".btn-add-points").click(add_points);
@@ -121,6 +114,11 @@ function initBtnPoints() {
 function initDiablo() {
   $('.diablo').unbind('click');
   $(".diablo").click(toggle_diablo);
+}
+
+function initSettings(){
+  $(".set_nb_joueurs").change(set_nb_joueurs);
+  $(".btn-setting-validation").click(apply_settings);
 }
 
 function apply_settings() {
@@ -146,18 +144,7 @@ function apply_settings() {
 }
 
 $(function () {
-  $(".set_nb_joueurs").change(set_nb_joueurs);
-  $(".btn-setting-validation").click(apply_settings);
-
-  $('.input_name').keydown(function (event) {
-    if (event.keyCode == 13) {
-      event.preventDefault();
-      $(this).next().click();
-      return false;
-    }
-  });
-
-  initBtnName();
   initBtnPoints();
   initDiablo();
+  initSettings();
 })
