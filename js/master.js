@@ -147,4 +147,8 @@ $(function () {
   initBtnPoints();
   initDiablo();
   initSettings();
+
+  $(".td_score").click(function(){
+    $(this).val("");
+  })
 })

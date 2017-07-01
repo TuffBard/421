@@ -36,7 +36,7 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a data-toggle="modal" href="#myModal">
+              <a data-toggle="modal" href="#modal-settings">
                 <span class="glyphicon glyphicon-cog"></span>
                 <label>Paramètres</label>
               </a>
@@ -134,7 +134,7 @@
       </div>
 
     <!-- Modal paramètres -->
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="modal-settings" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
