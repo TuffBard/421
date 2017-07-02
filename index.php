@@ -24,9 +24,11 @@
     <script src="js/bootstrap.js" charset="utf-8"></script>
     <!-- JS -->
     <script src="js/master.js"></script>
+    <!-- SoundCloud -->
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-custom">
       <div class="container-fluid">
 
         <div class="navbar-header">
@@ -51,7 +53,10 @@
       </div>
     </nav>
     <div class="container-fluid">
-      <div class="col-md-12">
+      <div class="col-xs-2 souncloud-container">
+      </div>
+
+      <div class="col-md-10">
         <table class="table table_score">
           <!-- Liste des joueurs -->
           <thead>

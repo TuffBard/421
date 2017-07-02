@@ -42,6 +42,7 @@ function add_points() {
   $(this).css("display", "none");
   initBtnPoints();
   initDiablo();
+  initScoreEvent();
 }
 
 function add_point_php(joueur, tour, score) {
@@ -121,6 +122,29 @@ function initSettings(){
   $(".btn-setting-validation").click(apply_settings);
 }
 
+function initScoreEvent(){
+  $(".td_score").click(function(){
+    $(this).val("");
+  })
+}
+
+function initSoundcloud(){
+  SC.initialize({
+    client_id: 'YOUR_CLIENT_ID'
+  });
+
+  var track_url = 'https://soundcloud.com/tuff-bard/sets/421-playlist';
+  var sc_options = { 
+    auto_play: false, 
+    show_comments:false,
+    //maxheight: 166
+  };
+  SC.oEmbed(track_url,sc_options).then(function(oEmbed) {
+    console.log('oEmbed response: ', oEmbed);
+    $(".souncloud-container").html(oEmbed.html);
+  });
+}
+
 function apply_settings() {
   var nbPlayers = $("#nb_j").val();
   var players = [];
@@ -147,8 +171,6 @@ $(function () {
   initBtnPoints();
   initDiablo();
   initSettings();
-
-  $(".td_score").click(function(){
-    $(this).val("");
-  })
+  initSoundcloud();
+  initScoreEvent();
 })
