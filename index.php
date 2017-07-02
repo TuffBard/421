@@ -56,7 +56,7 @@
       <div class="col-xs-2 souncloud-container">
       </div>
 
-      <div class="col-md-10">
+      <div class="col-xs-10">
         <table class="table table_score">
           <!-- Liste des joueurs -->
           <thead>

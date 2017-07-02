@@ -140,7 +140,7 @@ function initSoundcloud(){
     //maxheight: 166
   };
   SC.oEmbed(track_url,sc_options).then(function(oEmbed) {
-    console.log('oEmbed response: ', oEmbed);
+    //console.log('oEmbed response: ', oEmbed);
     $(".souncloud-container").html(oEmbed.html);
   });
 }
