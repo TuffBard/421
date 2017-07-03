@@ -57,7 +57,7 @@
       </div>
 
       <div class="col-xs-10">
-        <table class="table table_score">
+        <table class="table table_score header-fixed">
           <!-- Liste des joueurs -->
           <thead>
             <tr>
@@ -71,8 +71,9 @@
                   echo "<th><strong>$nom</strong></th>";
                 }
               ?>
+              <th></th>
             </tr>
-          </thead>
+          
           <!-- Score total -->
           <tr>
             <?php
@@ -93,7 +94,9 @@
               </td>";
             }
             ?>
+            <td></td>
           </tr>
+          </thead>
             <?php
             /// Scores précédents
             $nb_turns = count($game->players[1]->turns);
@@ -110,7 +113,7 @@
                       </form>
                     </td>";
               }
-              echo "</tr>";
+              echo "<td></td></tr>";
             }
           /// Nouveau tour
           echo "<tr id='turn_$nb_turns'>";
