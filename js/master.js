@@ -6,6 +6,7 @@ function add_points() {
   //Pour chaque joueur
   for (i = 1; i <= nb_joueurs; i++) {
     let $score_j = $("#score_j" + i + "_t" + turn);
+    let $td_j = $("#td_j" + i + "_t" + turn);
     let $total_j = $("#total_j" + i);
     let total_j = parseFloat($total_j.val(), 10);
     let score_j = parseFloat($score_j.val(), 10);
@@ -13,7 +14,8 @@ function add_points() {
     //J'additionne le score au total du joueur
     $total_j.val(total_j + score_j);
     //J'empeche la modification de la ligne
-    $score_j.prop("readonly", true);
+    $td_j.html("<strong>"+score_j+"</strong>");
+    //$score_j.prop("readonly", true);
   }
 
   //Je créer un nouvelle ligne
@@ -21,7 +23,7 @@ function add_points() {
   //Je créé une collonne par joueur
   for (i = 1; i <= nb_joueurs; i++) {
     let diablo = gestion_diablo(i, turn);
-    row += "<td>"
+    row += "<td id='td_j"+i+"_t"+next+"'>"
       + "<form class='form-inline'>"
       + "<div class='form_group'>"
       + "<input type='number' id='score_j" + i + "_t" + next + "' value='1' class='form-control td_score' step='0.5'>"

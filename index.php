@@ -71,7 +71,7 @@
                   echo "<th><strong>$nom</strong></th>";
                 }
               ?>
-              <th></th>
+              <th class='no-border'></th>
             </tr>
           
           <!-- Score total -->
@@ -94,7 +94,7 @@
               </td>";
             }
             ?>
-            <td></td>
+            <td class='no-border'></td>
           </tr>
           </thead>
             <?php
@@ -107,20 +107,19 @@
                 echo"<td>
                       <form class='form-inline'>
                         <div class='form_group'>
-                          <input type='number' id='score_j".$i."_t$t' name='score' value='$score' class='form-control td_score' step='0.5' disabled>
-                          <img src='img/diablo_off.png' value='false' class='diablo onclick'/>
+                          <strong>$score</strong>
                         </div>
                       </form>
                     </td>";
               }
-              echo "<td></td></tr>";
+              echo "<td class='no-border'></td></tr>";
             }
           /// Nouveau tour
           echo "<tr id='turn_$nb_turns'>";
 
             //Je créé une colonne par joueur
             for($i=1;$i<=$max;$i++){
-              echo"<td>
+              echo"<td id='td_j".$i."_t$nb_turns'>
                     <form class='form-inline'>
                       <div class='form_group'>
                         <input type='number' id='score_j".$i."_t$nb_turns' name='score' value='1' class='form-control td_score' step='0.5'>

@@ -5,7 +5,7 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #d2e7ff;
+  background-color: #FFFBF0;
 }
 
 .table_score, th{
@@ -50,11 +50,6 @@ body {
   width: 60px;
 }
 
-.btn_set_nom, .btn_mod_nom{
-  position: absolute;
-  margin-left: 5px;
-}
-
 .dice{
   border-radius: 0 !important;
   margin-right: 5px;
@@ -64,11 +59,19 @@ body {
   overflow-y: auto;
 }
 
+.no-border{
+  border: none !important;
+}
+
+.btn-add-points{
+  float: left;
+}
+
 /*
   Navbar style
 */
 .navbar-custom{
-  background-color: #0066cc;
+  background-color: #F2C329;
   color:black;
   border-radius:0;
 }
@@ -116,14 +119,47 @@ table-layout: fixed;
 
 table{
  height:300px;              
- display: -moz-groupbox; 
+ display: -moz-groupbox;
+ width: 95%;
 }
 tbody{
   overflow-y: scroll;      
   height: 70vh;            
-  width: 100%;
+  width: 98%;
   position: absolute;
 }
 /*
   End fixed header table
 */
+
+/*
+ *  Scrollbar
+ */
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #F90;	
+	background-image: -webkit-linear-gradient(45deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}
+/*
+ *  End ccrollbar
+ */

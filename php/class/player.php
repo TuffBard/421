@@ -4,7 +4,7 @@ class Player{
   public $turns = [];
   public $total;
 
-  public function __contstruct(){
+  public function __construct(){
     $this->nom = "Joueur";
     $this->total = 0;
   }
