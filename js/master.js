@@ -148,6 +148,14 @@ function initSoundcloud(){
 }
 
 function initStats(){
+  var ctx = document.getElementById('canvas-stats').getContext('2d');
+  var chart = new Chart(ctx, {
+      type: 'line',
+      data: null,
+      // Configuration options go here
+      options: {}
+  });
+
   $("#chart_button").click(function(){
     $.ajax({
       method: "POST",
@@ -183,14 +191,8 @@ function initStats(){
         });
       }
 
-      var ctx = document.getElementById('canvas-stats').getContext('2d');
-      ctx.clearRect(0, 0, ctx.width, ctx.height);
-      var chart = new Chart(ctx, {
-          type: 'line',
-          data: chart_data,
-          // Configuration options go here
-          options: {}
-      });
+      chart.data = chart_data;
+      chart.update();
     });
   });
 }
