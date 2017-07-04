@@ -95,7 +95,7 @@ body {
 .navbar-custom .navbar-nav > .active > a:focus,
 .navbar-custom .navbar-nav > .open >a {
     text-decoration: none;
-    background-color: #0060cc;
+    background-color: #F2C329;
     color: black;
 }
 .navbar-custom .navbar-toggle {

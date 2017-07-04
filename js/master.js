@@ -147,6 +147,53 @@ function initSoundcloud(){
   });
 }
 
+function initStats(){
+  $("#chart_button").click(function(){
+    $.ajax({
+      method: "POST",
+      url: "./php/ajax/get_players.php"
+    }).done(function (data) {
+      var game = JSON.parse(data);
+      var nb_turns = []
+      for(i=1;i<=game.players[1].turns.length;i++){
+        nb_turns.push(i);
+      }
+      
+      var chart_data = {
+        labels: nb_turns,
+        datasets: []
+      };
+      //console.log(game.players);
+      
+      for(p in game.players){
+        //console.log(game.players[p].turns);
+        let total = 0
+        let turns = game.players[p].turns
+        turns = turns.map(function(x){
+          total += x;
+          return total;
+        })
+        let nom = game.players[p].nom
+
+        chart_data.datasets.push({
+          label: nom,
+          borderColor: "black",
+          data: turns,
+          fill: false
+        });
+      }
+
+      var ctx = document.getElementById('canvas-stats').getContext('2d');
+      var chart = new Chart(ctx, {
+          type: 'line',
+          data: chart_data,
+          // Configuration options go here
+          options: {}
+      });
+    });
+  });
+}
+
 function apply_settings() {
   var nbPlayers = $("#nb_j").val();
   var players = [];
@@ -175,4 +222,5 @@ $(function () {
   initSettings();
   initSoundcloud();
   initScoreEvent();
+  initStats();
 })

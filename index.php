@@ -26,6 +26,8 @@
     <script src="js/master.js"></script>
     <!-- SoundCloud -->
     <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+    <!-- Chart JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-custom">
@@ -41,6 +43,12 @@
               <a data-toggle="modal" href="#modal-settings">
                 <span class="glyphicon glyphicon-cog"></span>
                 <label>Paramètres</label>
+              </a>
+            </li>
+            <li>
+              <a id="chart_button" data-toggle="modal" href="#modal-chart">
+                <span class="glyphicon glyphicon-stats"></span>
+                <label>Statistique</label>
               </a>
             </li>
           </ul>
@@ -181,6 +189,26 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
             <button type="button" class="btn btn-success btn-setting-validation">Valider</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Modal statistique -->
+    <div class="modal fade" id="modal-chart" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Statistique</h4>
+          </div>
+          <div class="modal-body auto-height">
+            <canvas id="canvas-stats"></canvas>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            <button type="button" class="btn btn-success">Valider</button>
           </div>
         </div>
 
