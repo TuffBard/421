@@ -184,6 +184,7 @@ function initStats(){
       }
 
       var ctx = document.getElementById('canvas-stats').getContext('2d');
+      ctx.destroy();
       var chart = new Chart(ctx, {
           type: 'line',
           data: chart_data,
