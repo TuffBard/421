@@ -156,6 +156,8 @@ function initStats(){
       options: {}
   });
 
+  var colors = ["#7fb685","#d05353","#e58f65","#1e1e24","#284b63","#c2efeb","#41337a","#ffb30f"];
+
   $("#chart_button").click(function(){
     $.ajax({
       method: "POST",
@@ -185,7 +187,7 @@ function initStats(){
 
         chart_data.datasets.push({
           label: nom,
-          borderColor: "black",
+          borderColor: colors[p-1],
           data: turns,
           fill: false
         });
