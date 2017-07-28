@@ -14,7 +14,7 @@ function add_points() {
     //J'additionne le score au total du joueur
     $total_j.val(total_j + score_j);
     //J'empeche la modification de la ligne
-    $td_j.html("<strong>"+score_j+"</strong>");
+    $td_j.html("<strong>" + score_j + "</strong>");
     //$score_j.prop("readonly", true);
   }
 
@@ -23,7 +23,7 @@ function add_points() {
   //Je créé une collonne par joueur
   for (i = 1; i <= nb_joueurs; i++) {
     let diablo = gestion_diablo(i, turn);
-    row += "<td id='td_j"+i+"_t"+next+"'>"
+    row += "<td id='td_j" + i + "_t" + next + "'>"
       + "<form class='form-inline'>"
       + "<div class='form_group'>"
       + "<input type='number' id='score_j" + i + "_t" + next + "' value='1' class='form-control td_score' step='0.5'>"
@@ -119,67 +119,67 @@ function initDiablo() {
   $(".diablo").click(toggle_diablo);
 }
 
-function initSettings(){
+function initSettings() {
   $(".set_nb_joueurs").change(set_nb_joueurs);
   $(".btn-setting-validation").click(apply_settings);
 }
 
-function initScoreEvent(){
-  $(".td_score").click(function(){
+function initScoreEvent() {
+  $(".td_score").click(function () {
     $(this).val("");
   })
 }
 
-function initSoundcloud(){
+function initSoundcloud() {
   SC.initialize({
     client_id: 'YOUR_CLIENT_ID'
   });
 
   var track_url = 'https://soundcloud.com/tuff-bard/sets/421-playlist';
-  var sc_options = { 
-    auto_play: false, 
-    show_comments:false,
+  var sc_options = {
+    auto_play: false,
+    show_comments: false,
     //maxheight: 166
   };
-  SC.oEmbed(track_url,sc_options).then(function(oEmbed) {
+  SC.oEmbed(track_url, sc_options).then(function (oEmbed) {
     //console.log('oEmbed response: ', oEmbed);
     $(".souncloud-container").html(oEmbed.html);
   });
 }
 
-function initStats(){
+function initStats() {
   var ctx = document.getElementById('canvas-stats').getContext('2d');
   var chart = new Chart(ctx, {
-      type: 'line',
-      data: null,
-      // Configuration options go here
-      options: {}
+    type: 'line',
+    data: null,
+    // Configuration options go here
+    options: {}
   });
 
-  var colors = ["#7fb685","#d05353","#e58f65","#1e1e24","#284b63","#c2efeb","#41337a","#ffb30f"];
+  var colors = ["#7fb685", "#d05353", "#e58f65", "#1e1e24", "#284b63", "#c2efeb", "#41337a", "#ffb30f"];
 
-  $("#chart_button").click(function(){
+  $("#chart_button").click(function () {
     $.ajax({
       method: "POST",
       url: "./php/ajax/get_players.php"
     }).done(function (data) {
       var game = JSON.parse(data);
       var nb_turns = []
-      for(i=1;i<=game.players[1].turns.length;i++){
+      for (i = 1; i <= game.players[1].turns.length; i++) {
         nb_turns.push(i);
       }
-      
+
       var chart_data = {
         labels: nb_turns,
         datasets: []
       };
       //console.log(game.players);
-      
-      for(p in game.players){
+
+      for (p in game.players) {
         //console.log(game.players[p].turns);
         let total = 0
         let turns = game.players[p].turns
-        turns = turns.map(function(x){
+        turns = turns.map(function (x) {
           total += x;
           return total;
         })
@@ -187,7 +187,7 @@ function initStats(){
 
         chart_data.datasets.push({
           label: nom,
-          borderColor: colors[p-1],
+          borderColor: colors[p - 1],
           data: turns,
           fill: false
         });
@@ -215,7 +215,7 @@ function apply_settings() {
     data: {
       players: data
     }
-  }).done(function(result){
+  }).done(function (result) {
     console.log(result);
     location.reload();
   });
