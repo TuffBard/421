@@ -13,10 +13,6 @@
   <script src="js/bootstrap.js" charset="utf-8"></script>
   <!-- JS -->
   <script src="js/connect.js"></script>
-  <!-- SoundCloud -->
-  <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-  <!-- Chart JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
 </head>
 
 <body>
@@ -45,7 +41,7 @@
           </div>
           <div class="col-xs-4 col-xs-offset-4 margin-top-sm">
             <label>Mot de passe</label>
-            <input class="form-control input-sm" type="password-" name="password" placeholder="Mot de passe">
+            <input class="form-control input-sm" type="password" name="password" placeholder="Mot de passe">
           </div>
           <div class="col-xs-4 col-xs-offset-4 margin-top-lg">
             <button class="btn btn-primary col-xs-12">Connexion</button>
