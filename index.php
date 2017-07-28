@@ -18,6 +18,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- CSS -->
     <link href="css/master.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="js/jquery-3.1.0.min.js" charset="utf-8"></script>
     <!-- Bootstrap -->
