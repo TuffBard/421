@@ -16,11 +16,26 @@ $(document).ready(function () {
         lengthChange: false,
         info: false,
         ajax:{
-            url: "",
-            type: "post",
+            url: "php/ajax/get_games.php",
+            type: "POST",
             data: {
-                userId: ""
+                userId: $("#userId").val()
+            },
+            dataSrc:""
+        },
+        columns:[
+            { data: "Name" },
+            { data: "NbPlayer" },
+            { data: "NbTurn" },
+            { data: "Name" }
+        ],
+        columnDefs:[
+            {
+                targets: 3,
+                render: function(data, type, row){
+                    return "<div class='btn btn-default'>Ouvrir</div>";
+                }
             }
-        }
+        ]
     });
 });
