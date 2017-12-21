@@ -1,4 +1,6 @@
 <?php
+namespace App\Table;
+
 class Player{
   public $nom;
   public $turns = [];

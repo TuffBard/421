@@ -1,5 +1,7 @@
 <?php
-require_once("player.php");
+namespace App\Table;
+
+use App\Table\Player;
 class Game {
   ///Properties
   public $nb_player;
