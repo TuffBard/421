@@ -12,8 +12,6 @@ function initDatatable() {
       },
       type: "GET",
       dataSrc: function(data) {
-        console.log(data);
-        
         return data;
       }
     },
@@ -37,6 +35,12 @@ function initDatatable() {
         targets: 0,
         render: function(data, type, row) {
           return moment(data.date).format("DD/MM/YY HH:mm");
+        }
+      },
+      {
+        targets: 3,
+        render: function(data, type, row){
+          return "<center>" + data + "</center>";
         }
       },
       {

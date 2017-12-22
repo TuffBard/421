@@ -1,12 +1,13 @@
 <script src="public/js/games/mygames.js"></script>
 
+<a href="#" class="btn btn-success mt-2 mb-2 float-right"><span class="oi oi-plus"></span> <b>Nouvelle partie</b></a>
 <table id="table_games" class="table">
     <thead>
         <tr>
         <th>Date</th>
         <th>Nom</th>
         <th>Lieu</th>
-        <th>Nombre joueurs</th>
+        <th>Participants</th>
         <th>Actions</th>
         </tr>
     </thead>
@@ -14,5 +15,5 @@
 
 <!-- Template des status -->
 <script id="template-actions" type="x-tmpl-mustache">
-    <button class="btn btn-success">Ouvrir</button>
+    <button class="btn btn-success"><span class="oi oi-brush"></span></button>
 </script>
