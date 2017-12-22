@@ -10,7 +10,7 @@ class Database {
     private static $host = "127.0.0.1";
     private static $user = "root";
     private static $password = "";
-    private static $db = "nicolasehfbd";
+    private static $db = "421";
     private static $pdo;
 
     /**

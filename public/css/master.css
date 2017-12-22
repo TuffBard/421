@@ -1,0 +1,54 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF;
+}
+
+.onclick{
+  cursor: pointer;
+}
+
+.dice{
+  border-radius: 0 !important;
+  margin-right: 5px;
+}
+
+.auto-height{
+  overflow-y: auto;
+}
+
+.no-border{
+  border: none !important;
+}
+
+.btn-add-points{
+  float: left;
+}
+
+/*
+  Navbar style
+*/
+
+/*
+  End navbar style
+*/
+
+/*
+ *  margin
+ */
+  .margin-top-sm{
+  margin-top: 10px;
+ }
+  .margin-top-md{
+  margin-top: 20px;
+ }
+ .margin-top-lg{
+  margin-top: 25px;
+ }
+/*
+ *  End margin
+ */
