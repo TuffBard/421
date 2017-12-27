@@ -1,3 +1,6 @@
+<?php
+use App\Table\User;
+?>
 <html>
 
 <head>
@@ -31,14 +34,21 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.php"><strong>421</strong></a>
             </div>
+            <?php
+            if(isset($_SESSION["user"])){
+            ?>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="index.php?r=games&p=mygames" class="nav-link">Mes parties</a>
                 </li>
             </ul>
+
             <span class="navbar-text">
                 Bonjour <?= $_SESSION["user"]->name ?>
             </span>
+            <?php
+            }
+            ?>
         </div>
     </nav>
     <div class="container">
